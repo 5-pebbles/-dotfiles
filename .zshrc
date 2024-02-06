@@ -1,7 +1,7 @@
 # .zshrc
 EDITOR=nvim
 
-PROMPT='%1{🌸%}[%(!.%F{red}.%F{green)%~%f]%(!.#.$) '
+PROMPT='🌸[%(!.%F{red}.%F{green)%~%f]%(!.#.$) '
 
 alias 'l'='ls -A'
 alias 'c'='cd'
