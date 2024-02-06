@@ -1,5 +1,5 @@
 // Variables
-$bg: #181926;
+$bg: #303446;
 $fg: #cdd6f4;
 
 $hover: #b7bdf8;
@@ -9,7 +9,7 @@ $font: CaskaydiaCove Nerd Font;
 // Main
 .bar {
     color: $fg;
-    background: rgba($bg, 0.72);
+    background: rgba($bg, 0.65);
     font-family: $font;
 }
 
