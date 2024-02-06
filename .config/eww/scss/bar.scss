@@ -1,0 +1,62 @@
+// Variables
+$bg: #181926;
+$fg: #cdd6f4;
+
+$hover: #b7bdf8;
+
+$font: CaskaydiaCove Nerd Font;
+
+// Main
+.bar {
+    color: $fg;
+    background: rgba($bg, 0.72);
+    font-family: $font;
+}
+
+*:hover {
+    color: $hover
+}
+
+// Launchers
+.launcher * {
+    font-size: 30;
+    padding: 0px 3px 1px 5px;
+}
+
+// Workspaces
+.workspaces * {
+    font-size: 24;
+    padding: 1px 6px;
+}
+
+// Menu
+.menu * {
+    font-size: 24;
+    padding: 1px 6px 3px 6px;
+}
+
+// General
+scale trough {
+    all: unset;
+    background-color: $bg;
+    border-radius: 5px;
+    min-width: 100px;
+    min-height: 15px;
+}
+
+scale trough highlight {
+    all: unset;
+    background-color: $hover;
+    border-radius: 2px;
+}
+
+tooltip {
+    all: unset;
+    color: $fg;
+    background-color: $bg;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 15;
+    font-family: $font;
+}
+

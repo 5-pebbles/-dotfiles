@@ -1,0 +1,126 @@
+; Main
+
+(defwindow bar
+    :monitor 0
+    :exclusive true
+    :geometry (geometry
+        :x "0px"
+        :y "0px"
+        :width "100%"
+        :height "43px"
+        :anchor "bottom center"
+    )
+    (bar)
+)
+
+(defwidget bar []
+    (centerbox :orientation "h"
+        :valign "end"
+        (left)
+        (center)
+        (right)
+    )
+)
+
+
+; Alignment
+
+(defwidget left []
+    (launchers)
+)
+(defwidget center []
+    (workspaces)
+)
+(defwidget right []
+    (menu)
+)
+
+; Launchers
+
+(defwidget launchers []
+    (box :class "launcher"
+        :halign "start"
+        (terminal)
+    )
+)
+
+(defwidget terminal []
+    (box :class "terminal"
+        :orientation "h"
+        :space-evenly false
+        (button
+            :onclick "footclient &"
+            " "
+        )
+    )
+)
+
+
+; Workspaces
+
+(defwidget workspaces []
+    (literal 
+        :class "workspaces"
+        :content workspace_data
+    )
+)
+
+(deflisten workspace_data
+    "scripts/workspaces.sh"
+)
+
+
+; Menu
+
+(defpoll battery_icon :interval "15s" "scripts/battery.sh icon")
+(defpoll battery :interval "15s" "scripts/battery.sh")
+
+(defpoll volume_icon :interval "1s" "scripts/volume.sh icon")
+(defpoll volume :interval "1s" "scripts/volume.sh")
+
+(defvar audio_visible false)
+
+(defwidget menu []
+    (box :class "menu"
+        :halign "end"
+        :orientation "h"
+        :space-evenly false;
+        (eventbox :onhover "eww update audio_visible=true"
+            :onhoverlost "eww update audio_visible=false"
+            (box :orientation "h"
+                :space-evenly false;
+                (revealer :reveal audio_visible
+                    (scale :orientation "h"
+                        :flipped true
+                        :tooltip volume
+                        :min  0
+                        :max  121
+                        :value  volume
+                        :onchange "wpctl set-volume @DEFAULT_AUDIO_SINK@ {}% -l 1.2"
+                    )
+                )
+                (label :class "volume"
+                    :tooltip "Volume"
+                    :text volume_icon
+                )
+            )
+        )
+        (button
+            :class "wifi"
+            :onclick "footclient iwctl &"
+            :tooltip "Wifi"
+            "󰖩 "
+        )
+        (label
+            :class "battery"
+            :text battery_icon
+            :tooltip "Battery: ${battery}%"
+        )
+        (button
+            :class "poweroff"
+            :onclick "systemctl poweroff -i"
+            :tooltip "Poweroff"
+            "⏻ "
+        )
+    )
+)
