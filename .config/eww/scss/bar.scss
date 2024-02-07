@@ -9,7 +9,8 @@ $font: CaskaydiaCove Nerd Font;
 // Main
 .bar {
     color: $fg;
-    background: rgba($bg, 0.65);
+    background: rgba($bg, 0.70);
+    border-radius: 13px;
     font-family: $font;
 }
 
@@ -19,19 +20,19 @@ $font: CaskaydiaCove Nerd Font;
 
 // Launchers
 .launcher * {
-    font-size: 30;
+    font-size: 30px;
     padding: 0px 3px 1px 5px;
 }
 
 // Workspaces
 .workspaces * {
-    font-size: 24;
+    font-size: 24px;
     padding: 1px 6px;
 }
 
 // Menu
 .menu * {
-    font-size: 24;
+    font-size: 24px;
     padding: 1px 6px 3px 6px;
 }
 
@@ -46,7 +47,7 @@ scale trough {
 
 scale trough highlight {
     all: unset;
-    background-color: $hover;
+    background-color: $fg;
     border-radius: 2px;
 }
 
@@ -56,7 +57,7 @@ tooltip {
     background-color: $bg;
     border-radius: 5px;
     font-weight: 600;
-    font-size: 15;
+    font-size: 15px;
     font-family: $font;
 }
 

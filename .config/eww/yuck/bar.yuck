@@ -5,8 +5,8 @@
     :exclusive true
     :geometry (geometry
         :x "0px"
-        :y "0px"
-        :width "100%"
+        :y "5px"
+        :width "99%"
         :height "43px"
         :anchor "bottom center"
     )
@@ -49,6 +49,7 @@
         :orientation "h"
         :space-evenly false
         (button
+            :tooltip "Terminal"
             :onclick "footclient &"
             " "
         )
@@ -91,6 +92,7 @@
                 :space-evenly false;
                 (revealer :reveal audio_visible
                     (scale :orientation "h"
+                        :valign "end"
                         :flipped true
                         :tooltip volume
                         :min  0
